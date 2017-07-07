@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0,user-scalable=no">
+  <title>客服系统-登录</title>
+  <link rel="stylesheet" href="/style/main.css">
+</head>
+<body>
+    <form action="/login" method="post">
+        <div class="container login">
+            <div class="content">
+                <div class="title">客服登录</div>
+                <div class="formsInput">
+                    <input type="text" name="account" placeholder="账号" >
+                </div>
+                <div class="formsInput">
+                    <input type="password" name="pwd" placeholder="密码" >
+                </div>
+                <div class="login">
+                    <img src="/images/login.png"  class="headerImg" alt="登录" id="login">
+                </div>
+            </div>
+        </div>
+    </form>
+</body>
+<script src="/js/jquery-3.2.1.min.js"></script>
+<script type="text/javascript">
+    $(function(){
+        $('#login').click(function(){
+            if(!$('input[name="account"]').val()||!$('input[name="pwd"]').val()){
+                alert('账号、密码不能为空！');
+            }else{
+                $('form').submit();
+            }
+        });
+    });
+</script>
+</html>
+

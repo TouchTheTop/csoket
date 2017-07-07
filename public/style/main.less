@@ -1,0 +1,381 @@
+
+
+
+.container{
+    width: 50%;
+    margin:auto;
+    border:1px solid #eeeeee;
+    .nav{
+        min-height: 60px;
+        background-color: #41494b;
+        border-radius: 5px 5px 0px 0px;
+        color: white;
+        font-size: 14px;
+    }
+    .item{
+        display: inline-block;
+        height: 60px;
+        line-height: 60px;
+        padding: 0px 15px;
+    }
+    .self{
+        float: right;
+    }
+    .nav_item{
+        float:left;
+        .item:first-child{
+            border-radius: 5px 0px 0px 0px;
+        }
+        .item{
+            &.active,&:hover{
+                background-color:#000000;
+                color:#00bf00;
+                cursor: pointer;
+            }
+
+        }
+    }
+    .mainBox{
+        min-height:700px;
+        .contact_list{
+            width: 25%;
+            height: 700px;
+            border-right: 1px solid #dedede;
+            float:left;
+            overflow: auto;
+            overflow-x: hidden;
+
+            .headerImg{
+                margin-right: 5px;
+                position: relative;
+                img{
+                 width:40px;
+                 height:40px;
+                 border:1px solid #eeeeee;
+             }
+             .badge{
+                position:absolute;
+                top: -3px;
+            }
+        }
+        .nick{
+            font-size:16px;
+            color:#333333;
+            margin-bottom:  5px;
+        }
+        .info{
+            font-size:12px;
+            color:#666666;
+
+        }
+        .status{
+            float:right;
+        }
+
+
+        .contact_item{
+            overflow: auto;
+            padding: 15px;
+            &:hover{
+                background: #eeeeee;
+                cursor: pointer;
+            }
+            div{
+                display:inline-block;
+                float:left;
+            }
+            .content{
+                display:grid;
+            }
+
+        }
+    }
+    .main_chat{
+        width: 74.5%;
+        height: 700px;
+        float: left;
+        background: #f5f5f5;
+        .sendBox{
+            display: flex;
+            background: #fcfcfc;
+            border-top: 1px solid #dedede;
+            textarea{
+                width: 100%;
+                border: 0;
+                padding: 5px;
+                resize:none;
+                font-size: 14px;
+                line-height: 1.2;
+                border-bottom:1px solid #eeeeee;
+                padding-top: 40px;
+                &:focus{
+                    outline-offset: 0px;
+                    outline: #eeeeee;
+                }
+            }
+
+        }
+        .nav_who{
+            width: 100%;
+            min-height: 40px;
+            height:8%;
+
+            .nick_other{
+                margin: 0px 15px;
+                border-bottom: 1px solid #dedede;
+                padding: 10px 0px;
+                color:#333333;
+            }
+        }
+        .chatWindow{
+            width: 100%;
+            height: 72%;
+            overflow-y: auto;
+            .window{
+                padding: 15px;
+            }
+        }
+        .sendBox{
+         width: 100%;
+         height: 20%;
+         position: relative;
+         .chartbar{
+            width: 100%;
+            position: absolute;
+            border-bottom: 1px solid #eeeeee;
+            text-align: right;
+
+            .send{
+                width: 60px;
+                height: 30px;
+            }
+            .send_choise{
+
+                display: inline-block;
+                float: left;
+
+                img{
+                    width:25px;
+                    height:25px;
+                    padding: 2px;
+                    margin-left: 5px;
+                    &:hover{
+                        cursor:pointer;
+                        background: #ececec;
+                    }
+                }
+            }
+        }
+    }
+}
+}
+.headerImg img{
+ width:40px;
+ height:40px;
+ border:1px solid #eeeeee;
+}
+.badge{
+    padding: 2px;
+    background: red;
+    line-height: 12px;
+    border-radius: 50%;
+    width: 12px;
+    height: 12px;
+    text-align: center;
+    color: #fcfcfc;
+    right: -3px;
+    font-size: 12px;
+}
+}
+
+.msg{
+    width: 100%;
+    display: inline-block;
+    margin-top: 10px;
+    &.system{
+
+        text-align: center;
+        color: #999999;
+        font-size: 14px;
+
+    }
+    height: 40px;
+    line-height: 40px;
+    .content{
+      color: #555555;
+      background: white;
+      font-size: 16px;
+      padding: 12px;
+      line-height: 16px;
+      max-height: 40px;
+      display: inline-block;
+      margin-top: 1px;
+      margin-left: 10px;
+      border: 1px solid #dedede;
+      position: relative;
+      &:before{
+        content: ' ';
+        padding: 4px;
+        background: white;
+        position: absolute;
+        /* left: 0; */
+        margin-left: -18px;
+        transform: rotate(134deg);
+        width: 3px;
+        height: 3px;
+        border-bottom: 1px solid #dedede;
+        border-right: 1px solid #dedede;
+    }
+
+}
+
+}
+.msg.self{
+    img{
+        margin-left: 10px;
+    }
+    .content{
+        background:#afe478;
+        &:before{
+            display: none;
+        }
+        &:after{
+            content: ' ';
+            padding: 4px;
+            background: #afe478;
+            position: absolute;
+            /* left: 0; */
+            right: -7px;
+            transform: rotate(134deg);
+            width: 3px;
+            height: 3px;
+            border-top: 1px solid #dedede;
+            border-left: 1px solid #dedede;
+        }
+    }
+}
+.toLeft{
+    float: left;
+}
+.toRight{
+    float: right;
+}
+.getLeft2{
+    margin-left: -5px;
+}
+.hideIs{
+    display:none;
+}
+
+
+@media screen and(max-width:1400px) {
+    .container{
+        width: 60%;
+        .mainBox .main_chat .nav_who{
+            height: 5%;
+        }
+        .mainBox .main_chat .sendBox{
+            height: 22%;
+        }
+    }
+}
+
+@media screen and(max-width:900px) {
+    .container{
+        width: 100%;
+        .contact_list{
+           position: absolute;
+           z-index: 2222;
+           background: rgb(253, 254, 255);
+           width: 50% !important;
+           left:-200px;
+
+           &.active{
+            left:0;
+            animation:contactlistactive 1s;
+            -webkit-animation:contactlistactive 1s; /* Safari and Chrome */
+        }
+    }
+    .main_chat{
+        width: 100% !important;
+    }
+    .mainBox .main_chat .nav_who{
+        height: 5%;
+    }
+    .mainBox .main_chat .sendBox{
+        height: 22%;
+    }
+}
+
+@keyframes contactlistactive
+{
+    from {left: -200px;}
+    to {left: 0px;}
+}
+
+
+}
+
+body{
+    background: whitesmoke;
+}
+
+//#login
+.container.login{
+    width: 400px;
+    margin:auto;
+    border: 0;
+    margin-top:200px;
+    .content{
+        padding-bottom: 39px;
+        background: white;
+        border-radius:10px;
+        &:after{
+            content: ' ';
+            /* padding: 15px; */
+            width: 90px;
+            height: 90px;
+            background-color: white;
+            position: absolute;
+            margin-left: 154px;
+            /* border: 1px solid #ececec; */
+            border-radius: 50%;
+            z-index: 1;
+            margin-top: -5px;
+        }
+    }
+    .title{
+        font-size: 20px;
+        padding: 20px 15px;
+        color: #fcfcfc;
+        background: #ff7052;
+        border-radius: 10px 10px 0px 0px;
+        background-image: url(/images/title_bg.png);
+        background-size: 100% 100%;
+    }
+    .formsInput{
+        margin: 20px 15px;
+        input{
+            height: 30px;
+            margin: 5px 0px;
+            font-size:16px;
+            width:100%;
+            border: 0;
+            border-bottom: 1px solid #eeeeee;
+            &:focus{
+                outline:none;
+            }
+        }
+    }
+    .login{
+        display: block;
+        position: absolute;
+        margin-left: 160px;
+        opacity: 0.7;
+        z-index:2;
+        &:hover{
+            opacity:1;
+            cursor:pointer;
+        }
+    }
+}

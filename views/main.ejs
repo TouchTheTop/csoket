@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0,user-scalable=no">
+  <title>客服系统</title>
+  <link rel="stylesheet" href="/style/main.css">
+</head>
+<body>
+  <div class="container">
+    <div class="nav">
+      <div class="nav_item">
+        <div class="item active">
+          0人待回复
+        </div>
+        <div class="item getLeft2">
+          0人待接入
+        </div>
+      </div>
+      <div class="self">
+       <div class="item">
+        客服：1001
+      </div>
+<!--             <div class="item">
+                0人待接入
+              </div> -->
+
+            </div>
+          </div>
+          <div class="mainBox">
+            <div class="contact_list">
+              <div class="contact_item">
+                <div class="headerImg">
+                 <img src="/images/logo.png"  class="headerImg" alt="">
+                 <span class="badge">3</span>
+               </div>
+               <div class="content">
+                <div class="nick">胡朝飞</div>
+                <div class="info"><div>你很高会聊天么啊</div><span class="status"></span></div>
+              </div>
+
+            </div>
+            <div class="contact_item">
+              <div class="headerImg">
+               <img src="/images/logo.png"  alt="">
+               <span class="badge">3</span>
+             </div>
+             <div class="content">
+              <div class="nick">胡朝飞</div>
+              <div class="info"><div>你很高会聊天么啊</div><span class="status"></span></div>
+            </div>
+          </div>
+        </div>
+        <div class="main_chat">
+          <div class="nav_who">
+           <div class="nick_other">胡朝飞</div>
+         </div>
+         <div class="chatWindow">
+          <div class="window">
+
+           <div class="msg system headerImg other">
+            下午3:16
+          </div>
+
+          <div class="msg normal headerImg other">
+            <img src="/images/logo.png" class="toLeft">
+            <a class='content toLeft'>hellow!my dear Hu!</a>
+          </div>
+          <div class="msg normal headerImg self">
+            <img src="/images/logo.png" class="toRight">
+            <a class='content toRight'>hellow!my dear Hu!</a>
+          </div>
+
+          <div class="msg normal headerImg other">
+            <img src="/images/logo.png" class="toLeft">
+            <a class='content toLeft'>hellow!my dear Hu!</a>
+          </div>
+          <div class="msg normal headerImg other">
+            <img src="/images/logo.png" class="toLeft">
+            <a class='content toLeft'>hellow!my dear Hu!</a>
+          </div>
+        </div>
+      </div>
+      <div class="sendBox">
+       <input type="file" id="sendFile" value="" class="hideIs">
+        <textarea></textarea>
+        <div class="chartbar">
+        <div class="send_choise">
+          <!-- <img src="/images/emoji.png" alt="表情" class="src"> -->
+          <img src="/images/pic.png" alt="图片" class="src" id="sendPic">
+        </div>
+          <button class='send' id="sendIt">发送</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+</body>
+<script src="/js/jquery-3.2.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.3/socket.io.js"></script>
+<script type="text/javascript" >
+
+//切换左边列表视图
+$('.nav_item .item').click(function(){
+
+    if($(this).hasClass('active')){
+        $(this).removeClass('active');
+        $('.contact_list').removeClass('active');
+    }else{
+        $(this).addClass('active');
+        $('.contact_list').addClass('active');
+    }
+});
+
+//手机隐藏左边列表
+$(function(){
+  var socket = io();
+
+var h =  $(window).height();
+if(h<900){
+  $('.nav_item .item').removeClass('active');
+}
+
+$('#sendPic').click(function(){
+  $('#sendFile').click();
+});
+
+
+$('#sendIt').click(function(){
+   var content = $('.sendBox').find('textarea').val().trim();
+
+      socket.emit('message',content);
+   // $.ajax({
+   //  url:'http://localhost:3000/main/send',
+   //  type:'POST',
+   //  data:{
+   //    content:content,
+   //    id:'1'
+   //  },
+   //  success:function(res){
+   //    console.log(res);
+
+   //  }
+   // });
+});
+
+  socket.on('message1', function(msg){
+    console.log('message1: ' + msg);
+  });
+
+
+
+});
+</script>
+</html>
